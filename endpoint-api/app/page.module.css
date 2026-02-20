@@ -1,0 +1,369 @@
+.main {
+  min-height: 100vh;
+  padding: 0 0 80px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0 48px 0;
+  border-bottom: 1px solid #222;
+  margin-bottom: 56px;
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chevron {
+  font-size: 22px;
+  color: var(--red);
+  letter-spacing: -4px;
+  line-height: 1;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--grey-light);
+  font-weight: 500;
+}
+
+.dot {
+  color: var(--red);
+  font-size: 8px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background: var(--grey);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--red);
+}
+
+.cardLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.cardTitle {
+  font-family: var(--display);
+  font-size: 42px;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--grey-light);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.code {
+  background: #111;
+  color: var(--red);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--grey-light);
+  font-weight: 500;
+}
+
+.input {
+  background: var(--black);
+  border: 1px solid #333;
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #444;
+}
+
+.input:focus {
+  border-color: var(--red);
+}
+
+/* Button */
+.btn {
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btnRed {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btnRed:hover:not(:disabled) {
+  background: var(--red-dark);
+}
+
+/* Spinner */
+.spinner {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dots {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Result */
+.result {
+  margin-top: 28px;
+  border-top: 1px solid #333;
+  padding-top: 24px;
+}
+
+.resultLabel {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--grey-light);
+  margin-bottom: 12px;
+}
+
+.resultBox {
+  background: var(--black);
+  padding: 16px;
+  border-left: 2px solid var(--red);
+}
+
+.resultRow {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.key { color: #e8c97a; }
+.colon { color: var(--grey-light); margin: 0 6px; }
+.value { color: #7ec8a4; }
+.char { color: #7ec8a4; }
+
+.wordDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.charBadge {
+  background: var(--grey-mid);
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid var(--red);
+  animation: popIn 0.3s ease backwards;
+}
+
+.charBadge:nth-child(1) { animation-delay: 0.05s; }
+.charBadge:nth-child(2) { animation-delay: 0.1s; }
+.charBadge:nth-child(3) { animation-delay: 0.15s; }
+.charBadge:nth-child(4) { animation-delay: 0.2s; }
+.charBadge:nth-child(5) { animation-delay: 0.25s; }
+.charBadge:nth-child(6) { animation-delay: 0.3s; }
+.charBadge:nth-child(7) { animation-delay: 0.35s; }
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Error */
+.errorBox {
+  margin-top: 20px;
+  background: rgba(232, 40, 30, 0.1);
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 12px 16px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.errorIcon { font-size: 16px; font-weight: bold; }
+
+/* Pre */
+.pre {
+  background: var(--black);
+  border-left: 2px solid var(--red);
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #7ec8a4;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Reference */
+.reference {
+  background: var(--grey);
+  padding: 32px 40px;
+  margin-top: 2px;
+}
+
+.refLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.refGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .refGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    padding: 28px 20px;
+  }
+  .cardTitle {
+    font-size: 32px;
+  }
+}
+
+.refItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.refKey {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--grey-light);
+}
+
+.refVal {
+  font-size: 14px;
+  color: var(--white);
+}
+
+.refBadge {
+  color: var(--red);
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.refCode {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #7ec8a4;
+}
