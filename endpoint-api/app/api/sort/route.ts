@@ -1,20 +1,24 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: { json: () => any; }) {
+export async function POST(request: NextRequest) {
   try {
-
     const body = await request.json();
-    const { data } = body;
 
-    if (typeof data !== 'string') {
-      return NextResponse.json({ error: 'Invalid input. Expected a string.' }, { status: 400 });
+    if (!body.data || typeof body.data !== "string") {
+      return NextResponse.json(
+        { error: "Invalid request. Expected { data: string }" },
+        { status: 400 }
+      );
     }
 
-    const sortedArray = data.split('').sort();
+    const characters = body.data.split("");
+    const sorted = characters.sort((a, b) => a.localeCompare(b));
 
-    return NextResponse.json({ word: sortedArray });
-    
-  } catch (error) {
-    return NextResponse.json({ error: 'Invalid JSON payload.' }, { status: 400 });
+    return NextResponse.json({ word: sorted });
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid JSON body" },
+      { status: 400 }
+    );
   }
 }
